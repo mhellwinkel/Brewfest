@@ -12,41 +12,40 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="site-wrapper">
-
-  <div class="site-wrapper-inner">
-
-    <div class="cover-container">
-
-      <div class="masthead clearfix">
-        <div class="inner">
-          <%= link_to image_tag("MBAlogo.png", :border=>0), 'http://montanabrewers.org/' %>
-          <nav>
-            <ul class="nav masthead-nav">
-              <li class="active"><a href="/">Home</a></li>
-              <li><a href="/breweries">Breweries</a></li>
-              <li><a href="#">Rankings</a></li>
-            </ul>
-          </nav>
-        </div>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to image_tag("MBAlogo.png", :border=>0), 'http://montanabrewers.org/', class: 'navbar-brand' %>
       </div>
-
-      <div class="inner cover">
-
-        <%= yield %>
-
-      </div>
-
-      <div class="mastfoot">
-        <div class="inner">
-
-        </div>
-      </div>
-
+      <div id="navbar" class="navbar-collapse collapse">
+        <form class="navbar-form navbar-right">
+          <div class="form-group">
+            <input type="password" placeholder="Your Name" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-success">Sign in</button>
+        </form>
+      </div><!--/.navbar-collapse -->
     </div>
-
+  </nav>
+  <div class="jumbotron">
+    <div class="container">
+      <%= image_tag("Helena-Summer-Festival.png", :border=>0) %>
+    </div>
   </div>
 
-</div>
+  <div class="container-fluid">
+        <%= yield %>
+
+    <footer>
+      <p>&copy; Free to the world, fork me github.com</p>
+    </footer>
+  </div>
+
 </body>
 </html>

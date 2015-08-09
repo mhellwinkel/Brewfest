@@ -1,10 +1,19 @@
-<h1>Listing Brews</h1>
-<ul>
-  <% @brew.each do |brew| %>
-      <li>
-        <h2><%= link_to 'ratings', brewery_brew_ratings_path(brew.brewery_id, brew.id) %></h2>
-        <h2><%= link_to brew.name, new_brewery_brew_rating_path(brew.brewery_id, brew.id) %></h2>
-      </li>
 
-  <% end %>
-</ul>
+<br>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= link_to image_tag(@brewery.image, :border=>0), @brewery.website %><br>
+    Brew Listing</div>
+
+
+  <ul class="list-group">
+    <% @brewery.brews.each do |brew| %>
+        <li class="list-group-item">
+          <%= link_to brew.name, new_brewery_brew_rating_path(brew.brewery_id, brew.id),
+                      class: 'panel-content' %>
+        </li>
+
+    <% end %>
+  </ul>
+
+</div>

@@ -1,6 +1,6 @@
 class BrewsController < ApplicationController
   def index
-    @brew = Brewery.find(params[:brewery_id]).brews
+    @brewery = Brewery.find(params[:brewery_id])
   end
 
 

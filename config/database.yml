@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: mhellwinkel_production
-  username: postgres
-  password: 4ft2422d

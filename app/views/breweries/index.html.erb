@@ -1,5 +1,9 @@
-<ul>
-  <% @brewery.each do |brewery| %>
-    <li><h2><%= link_to image_tag(brewery.image, :border=>0), brewery_brews_path(brewery) %></h2></li>
+<div class="container">
+  <% @brewery.each_slice(3) do |slice| %>
+      <div class="row">
+        <% slice.each do |brewery| %>
+            <div class="brewery col-md-4"><%= link_to image_tag(brewery.image, :border=>0), brewery_brews_path(brewery) %></div>
+        <% end %>
+      </div>
   <% end %>
-</ul>
+</div>
