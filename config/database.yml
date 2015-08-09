@@ -80,4 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: mhellwinkel_production
+  url: <%= ENV['DATABASE_URL'] %>
