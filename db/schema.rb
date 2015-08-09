@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 20150809175724) do
 
   create_table "breweries", force: :cascade do |t|
     t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string   "name"
     t.string   "city"
     t.string   "website"
@@ -44,11 +43,6 @@ ActiveRecord::Schema.define(version: 20150809175724) do
   add_index "comments", ["brew_id"], name: "fki_brew_comments_fk", using: :btree
 
   create_table "drinkers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "pictures", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
