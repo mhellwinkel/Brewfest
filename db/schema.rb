@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150726183035) do
+ActiveRecord::Schema.define(version: 20150809052409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,13 +21,16 @@ ActiveRecord::Schema.define(version: 20150726183035) do
     t.datetime "updated_at", null: false
     t.string   "name"
     t.string   "city"
+    t.string   "website"
+    t.string   "image"
   end
 
   create_table "brews", force: :cascade do |t|
     t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "brewery_id"
-    t.text     "name"
-    t.text     "brew_type"
+    t.string   "name"
+    t.string   "type"
   end
 
   add_index "brews", ["brewery_id"], name: "index_brews_on_brewery_id", using: :btree
@@ -35,11 +38,7 @@ ActiveRecord::Schema.define(version: 20150726183035) do
   create_table "comments", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text     "comment"
-    t.integer  "brew_id"
   end
-
-  add_index "comments", ["brew_id"], name: "fki_brew_comments_fk", using: :btree
 
   create_table "drinkers", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -54,13 +53,7 @@ ActiveRecord::Schema.define(version: 20150726183035) do
   create_table "ratings", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "rating"
-    t.integer  "brew_id"
   end
 
-  add_index "ratings", ["brew_id"], name: "fki_brew_id_fk", using: :btree
-
   add_foreign_key "brews", "breweries"
-  add_foreign_key "comments", "brews", name: "brew_comments_fk"
-  add_foreign_key "ratings", "brews", name: "brew_id_fk"
 end
