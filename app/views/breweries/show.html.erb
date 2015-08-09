@@ -1,0 +1,47 @@
+<p>
+  <strong>Name:</strong>
+  <%= @brewery.name %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @brewery.city %>
+</p>
+
+<p>
+  <Strong>Brews:</Strong>
+  <ul>
+    <% @brewery.brews.each do |brew| %>
+        <li>
+          <dt>
+            Brew:
+            <%= brew.name %>
+            <dd>
+              <strong>Type:</strong>
+              <%= brew.brew_type %>
+            </dd>
+          </dt>
+        </li>
+    <% end %>
+  </ul>
+</p>
+
+
+<p>
+<h2>Add a brew:</h2>
+<%= form_for([@brewery, @brewery.brews.build]) do |f| %>
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :type %><br>
+      <%= f.text_area :brew_type %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>
+</p>
+
+<%= link_to 'Back', breweries_path %>

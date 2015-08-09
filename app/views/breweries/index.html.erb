@@ -1,0 +1,6 @@
+<h1>Listing Breweries</h1>
+<ul>
+  <% @brewery.each do |brewery| %>
+    <li><h2><%= link_to brewery.name, brewery_brews_path(brewery) %></h2></li>
+  <% end %>
+</ul>

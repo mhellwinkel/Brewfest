@@ -1,0 +1,11 @@
+<%= form_for( :rating, url: brewery_brew_ratings_path) do |f| %>
+    <p>
+      <%= f.label :rating %><br>
+      <%= f.text_field :rating %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+
+<% end %>
