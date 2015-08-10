@@ -12,6 +12,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<script>
+    $(document).ready(function() {
+        if($.cookie('name' === null)) {
+            console.log("not logged in");
+        }
+    });
+</script>
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
@@ -21,7 +28,10 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to image_tag("MBAlogo.png", :border=>0), 'http://montanabrewers.org/', class: 'navbar-brand' %>
+        <span class="navbar-brand">
+          2015 Brewfest
+        </span>
+
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
@@ -29,9 +39,9 @@
           <li><a href="/breweries">Breweries</a></li>
           <li><a href="/rankings">Rankings</a></li>
         </ul>
-        <form class="navbar-form navbar-right">
+        <form id="namebar" class="navbar-form navbar-right">
           <div class="form-group">
-            <input type="password" placeholder="Your Name" class="form-control">
+            <input type="text" placeholder="Your Name" class="form-control">
           </div>
           <button type="submit" class="btn btn-success">Sign in</button>
         </form>
@@ -48,7 +58,7 @@
         <%= yield %>
 
     <footer>
-      <p>&copy; Free to the world, fork me github.com</p>
+      <p>!&copy; Fork me on github</p>
     </footer>
   </div>
 

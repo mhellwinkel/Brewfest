@@ -1,11 +1,13 @@
 <h1>Welcome to Brewfest!</h1>
 <div id="helloExample"></div>
 <script>
+    $.cookie('name', 'Matt');
+    var myName = $.cookie('name');
     var HelloMessage = React.createClass({displayName: "HelloMessage",
     render: function() {
         return React.createElement("div", null, "Hello ", this.props.name);
     }
 });
 
-React.render(React.createElement(HelloMessage, {name: "John"}), document.getElementById('helloExample'));
+React.render(React.createElement(HelloMessage, {name: myName}), document.getElementById('helloExample'));
 </script>

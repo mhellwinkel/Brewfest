@@ -33,13 +33,13 @@ ul {
 .list-group a {
     color: #101010;
     display: block;
-    background-color: #E5F9C4;
+    background-color: #F3E2B9;
     padding: 15px;
     border-radius: 5px;
 }
 
 .list-group a:hover {
-    background-color: #DAFF9E;
+    background-color: #F6D586;
 }
 
 .brewery {
