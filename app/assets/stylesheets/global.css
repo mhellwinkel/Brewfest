@@ -21,6 +21,7 @@ body {
 
 .jumbotron {
     padding-bottom: 0px;
+    background-color: #F6D586;
 }
 ul {
     list-style-type : none;
@@ -29,7 +30,7 @@ ul {
 .panel-default>.panel-heading {
     background-color: #E9DFEC;
 }
-.panel a {
+.list-group a {
     color: #101010;
     display: block;
     background-color: #E5F9C4;
@@ -37,10 +38,11 @@ ul {
     border-radius: 5px;
 }
 
-.panel a:hover {
+.list-group a:hover {
     background-color: #DAFF9E;
 }
 
 .brewery {
     margin-bottom: 15px;
 }
+

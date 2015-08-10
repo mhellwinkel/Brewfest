@@ -3,8 +3,8 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <%= link_to image_tag(@brewery.image, :border=>0), @brewery.website %><br>
-    Brew Listing</div>
-
+    Brew Listing
+  </div>
 
   <ul class="list-group">
     <% @brewery.brews.each do |brew| %>
@@ -15,5 +15,4 @@
 
     <% end %>
   </ul>
-
 </div>
