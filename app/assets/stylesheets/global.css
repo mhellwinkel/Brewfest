@@ -30,7 +30,7 @@ ul {
 .panel-default>.panel-heading {
     background-color: #E9DFEC;
 }
-.list-group a {
+.list-group-item a {
     color: #101010;
     display: block;
     background-color: #F3E2B9;
