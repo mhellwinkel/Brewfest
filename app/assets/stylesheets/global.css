@@ -12,9 +12,7 @@ html,
 body {
     height: 100%;
     background-color: #A93CD4;
-}
-body {
-    color: #fff;
+    font-family: 'Monda', sans-serif;
     text-align: center;
     text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
@@ -29,6 +27,10 @@ ul {
 
 .panel-default>.panel-heading {
     background-color: #E9DFEC;
+}
+
+footer .panel-default {
+    background-color: #F6D586;
 }
 .list-group-item a {
     color: #101010;

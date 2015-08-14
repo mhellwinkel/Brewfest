@@ -7,6 +7,7 @@
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <title>2015 Brewfest</title>
   <script src="https://fb.me/react-0.13.3.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Monda:400,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -58,7 +59,13 @@
         <%= yield %>
 
     <footer>
-      <p>!&copy; Fork me on github</p>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <%= @quote = get_random_quote %>
+        </div>
+
+
+      </div>
     </footer>
   </div>
 

@@ -1,15 +1,15 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    Top 10 Ranking Beers
+    <h2>Top 10 Ranking Beers</h2>
   </div>
 
   <ul class="list-group">
-    <% @rankings.each do |ranking| %>
+    <% @rankings.each do |hash| %>
         <li class="list-group-item">
           <a href="#">
-              Average Ranking: <%= ranking["avg"].to_f.round(2) %> <br/>
-              Brew: <%= ranking["bname"] %><br/>
-              Brewery: <%= ranking["brname"] %>
+              <%= hash["bname"] %><br/>
+              Average Ranking: <%= hash["avg"].to_f.round(2) %> <br/>
+            <%= image_tag(hash["image"], :border=>0) %>
           </a>
         </li>
     <% end %>
@@ -24,9 +24,7 @@
   <ul class="list-group">
     <% @breweries.each do |brewery| %>
         <li class="list-group-item">
-          <a href="#">
-
-          </a>
+          <%= link_to image_tag(brewery["image"], :border=>0), brewery_path(brewery["id"]) %>
         </li>
     <% end %>
   </ul>
