@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Top Ranking Beers
+  </div>
+
+  <ul class="list-group">
+    <% @rankings.each do |ranking| %>
+        <li class="list-group-item">
+          Average Ranking: <%= ranking["avg"].to_f.round(2) %> <br/>
+          Brew: <%= ranking["name"] %>
+        </li>
+    <% end %>
+  </ul>
+</div>
