@@ -8,6 +8,7 @@ class RatingsController < ApplicationController
     puts 'Creating Rating for ' + rating_params.to_s
     rating = Rating.new(rating_params)
     rating.assign_attributes({:brew_id => params[:brew_id]})
+    puts 'DRINKER => '  + rating.drinker
     @rating = rating
     if @rating.save
       redirect_to breweries_path
@@ -18,7 +19,7 @@ class RatingsController < ApplicationController
 
   private
   def rating_params
-    params.require(:rating).permit(:brew_id, :value)
+    params.require(:rating).permit(:brew_id, :value, :drinker)
   end
 
 end

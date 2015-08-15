@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20150814225037) do
     t.datetime "updated_at", null: false
     t.integer  "value"
     t.integer  "brew_id"
+    t.string   "drinker"
   end
 
   add_index "ratings", ["brew_id"], name: "fki_brew_id_fk", using: :btree

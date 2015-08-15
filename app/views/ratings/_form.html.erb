@@ -1,13 +1,26 @@
+<script>
+    $(document).ready( function() {
+        var drinker_name = $.cookie("name");
+        if (drinker_name ==null) {
+            $('#rate-btn').prop('disable', true);
+            alert('Enter Name before Rating');
+        } else {
+            $('#rating_drinker').val(drinker_name);
+        }
+    })
+</script>
 <%= form_for( @rating, url: brewery_brew_ratings_path, class: 'form-horizontal') do |f| %>
     <div class="form-group">
+
       <div class="col-sm-10">
         <%= f.number_field :value, class: 'form-control', min: 1, max:10,
             placeholder: 'Rank 1-10'%>
+        <%= f.hidden_field :drinker, class: 'form-control' %>
       </div>
     </div>
 
     <p>
-      <%= f.submit "Rate", class: 'btn btn-default'%>
+      <%= f.submit "Rate", class: 'btn btn-default', id: 'rate-btn'%>
     </p>
 
 <% end %>

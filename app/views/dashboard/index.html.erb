@@ -1,13 +1,22 @@
-<h1>Welcome to Brewfest!</h1>
 <div id="helloExample"></div>
+<br>
+<br>
 <script>
-    $.cookie('name', 'Matt');
     var myName = $.cookie('name');
     var HelloMessage = React.createClass({displayName: "HelloMessage",
-    render: function() {
-        return React.createElement("div", null, "Hello ", this.props.name);
-    }
-});
+        render: function() {
+            return React.createElement("h2", null, "Welcome to Brewfest, ", this.props.name, "!!!")
+        }
+    });
+    var LoginMessage = React.createClass({displayName: "LoginMessage",
+        render: function() {
+            return React.createElement("h2", null, "Please Enter your Name before Rating");
+        }
+    })
+if (myName != null){
+    React.render(React.createElement(HelloMessage, {name: myName.split('::')[0]}), document.getElementById('helloExample'));
+} else {
+    React.render(React.createElement(LoginMessage), document.getElementById('helloExample'));
+}
 
-React.render(React.createElement(HelloMessage, {name: myName}), document.getElementById('helloExample'));
 </script>

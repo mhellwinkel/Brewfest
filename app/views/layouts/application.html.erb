@@ -7,7 +7,7 @@
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <title>2015 Brewfest</title>
   <script src="https://fb.me/react-0.13.3.js"></script>
-  <link href='http://fonts.googleapis.com/css?family=Monda:400,700' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Monda:400,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -15,9 +15,32 @@
 <body>
 <script>
     $(document).ready(function() {
-        if($.cookie('name' === null)) {
-            console.log("not logged in");
+        var nc = $.cookie('name');
+        if (nc != null) {
+            console.log('hiding namebar');
+            $('#namebar').hide()
+            $('#namedisp').html("Hello " + nc.split('::')[0]).show();
         }
+
+
+        $('#namebar').submit(function() {
+            var name = $('#new-name').val();
+
+
+            if (name == '') {
+                alert('Enter a Valid Name');
+                return;
+            }
+            var value = name + '::' + $.now();
+            console.log(value);
+            if ($.cookie('name') == null) {
+                $.cookie('name', value);
+                location.reload();
+            } else {
+                console.log(value);
+                alert('I already know you ' + $.cookie('name').split('::')[0]);
+            }
+        })
     });
 </script>
   <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -25,6 +48,7 @@
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
           <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -40,11 +64,12 @@
           <li><a href="/breweries">Breweries</a></li>
           <li><a href="/rankings">Rankings</a></li>
         </ul>
+        <div class="navbar-right" id="namedisp"></div>
         <form id="namebar" class="navbar-form navbar-right">
           <div class="form-group">
-            <input type="text" placeholder="Your Name" class="form-control">
+            <input type="text" placeholder="Your Name" class="form-control" id="new-name">
           </div>
-          <button type="submit" class="btn btn-success">Sign in</button>
+          <button type="submit" class="btn btn-success" id="set-name">Sign in</button>
         </form>
       </div><!--/.navbar-collapse -->
     </div>
